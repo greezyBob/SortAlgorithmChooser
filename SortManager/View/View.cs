@@ -1,7 +1,10 @@
-﻿namespace View;
+﻿using Controller;
+
+namespace View;
 
 public class View
 {
+
     static void Main(string[] args)
     {
         Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
@@ -35,48 +38,57 @@ sdfs
         Console.SetCursorPosition(0, currentLineCursor);
     }
 
-    public static void GetUserInput(string input)
+    public static void GetUserInput(string? input)
     {
-        //Controller.GetUserInput(input);
+        Controller.ParseInput(input);
     }
 
-    public static string DisplaySortOptionScreen()
+    public static void DisplaySortOptionScreen()
     {
-        return @"Choose your option
-1 Bubble sort
-2 Merge sort
-3 .NET sort
-4 Exit  
->>";
+        Console.WriteLine(@"Choose your option.
+1 - Bubble sort
+2 - Merge sort
+3 - .NET sort
+4 - Exit  
+>> ");
+        GetUserInput(Console.ReadLine());
+        ClearUpToBoarder();
+
     }
 
-    public static string DisplayArrayLengthScreen()
+    public static void DisplayArrayLengthScreen()
     {
-        return @"Input Array Length
+        Console.WriteLine(@"Input Array Length.
 Error will be shown if no length is given.
->> ";
+>> ");
+        GetUserInput(Console.ReadLine());
+        ClearUpToBoarder();
     }
 
-    public static string DisplayHappyOutputScreen(int[] arrayUnsorted, int[] arraySorted, double timeTaken)
+    public static void DisplayHappyOutputScreen(int[] arrayUnsorted, int[] arraySorted, double timeTaken)
     {
-        return @"Output
-Array unsorted:
-Array sorted:
-Time taken:
+        Console.WriteLine($@"Output.
+Array unsorted: {arrayUnsorted}
+Array sorted: {arraySorted}
+Time taken: {timeTaken}
 1 Again?
 2 Exit?
->>";
+>> ");
+        GetUserInput(Console.ReadLine());
+        ClearUpToBoarder();
     }
 
-    public static string DisplayUnhappyOutputScreen(int[] arrayUnsorted, string errorMessage, double timeTaken)
+    public static void DisplayUnhappyOutputScreen(int[] arrayUnsorted, string errorMessage, double timeTaken)
     {
-        return @"Output
-Array unsorted: {}
-Array sorted: Error and why?
-Time taken:
+        Console.WriteLine($@"Output.
+Array unsorted: {arrayUnsorted}
+Array sorted: ERROR: {errorMessage}
+Time taken: {timeTaken}
 1 Again?
 2 Exit?
->>";
+>> ");
+        GetUserInput(Console.ReadLine());
+        ClearUpToBoarder();
     }
 
     public static string GetAsciiArt()
