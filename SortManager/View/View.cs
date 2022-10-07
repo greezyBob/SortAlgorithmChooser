@@ -1,6 +1,6 @@
 ﻿
 
-namespace SortManagerViews;
+namespace SortManagerView;
 
 public class View
 {
