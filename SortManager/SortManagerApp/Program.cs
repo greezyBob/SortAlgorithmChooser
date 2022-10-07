@@ -1,10 +1,16 @@
-﻿namespace SortManagerApp
+﻿using SortManagerControllers;
+using 
+
+namespace SortManagerApp
 {
     internal class Program
     {
-        //static void Main(string[] args)
-        //{
-        //    //Console.WriteLine("Hello, World!");
-        //}
+        private static Controller controller;
+        private static View view;
+        static void Main(string[] args)
+        {
+            controller = new Controller();
+            
+        }
     }
 }
