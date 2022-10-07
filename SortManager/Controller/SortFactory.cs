@@ -1,40 +1,24 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-////using Model;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks.Sources;
+using Model;
 
 namespace Controller
 {
     public class SortFactory
     {
-        public int[] ChooseSorter(int input, int[] arr)
+        public ISortable ChooseSorter(int input)
         {
-            int[] result = new int[arr.Length];
-            if (input == 1)
+            switch (input)
             {
-               var sorter = new BubbleSortModel();
-               result = sorter.Sort(arr);
+                case 1: return new BubbleSortModel();
+                case 2: return new MergeSortModel();
+                case 3: return new DotNetSort();
+                default: throw new ArgumentException();
+
             }
-            else if (input == 2)
-            {
-                var sorter = new _model();
-                result =  sorter.Sort(arr);
-            }
-            else if (input == 3)
-            {
-                var sorter = new DotNetSort();
-                result = sorter.Sort(arr);
-            }
-            else if (input == 4)
-            {
-                //exit
-            }
-            else
-            {
-              //input invalid      
-            }
-            return result;
         }
     }
 }
