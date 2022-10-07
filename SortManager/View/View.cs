@@ -1,6 +1,6 @@
 ﻿namespace View
 {
-    internal class Program
+    internal class View
     {
         static void Main(string[] args)
         {
