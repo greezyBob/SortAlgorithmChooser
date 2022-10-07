@@ -8,13 +8,36 @@ public class View
         Console.SetWindowPosition(0, 0);
         Console.WriteLine(GetAsciiArt());
         //Get from controller, what to display.
-        
+        Console.WriteLine(@"dkfnskdnv
+dsfgsfds
+sdfsdfsdf
+sdfsafs\SADF
+DFSDFW
+sdfs
+.");
+        ClearUpToBoarder();
+    }
 
+    public static void ClearUpToBoarder()
+    {
+        for (int i = 40; i < 60; i++)
+        {
+            ClearCurrentConsoleLine(i);
+        }
+        Console.SetCursorPosition(0, 40);
+    }
+
+    public static void ClearCurrentConsoleLine(int position)
+    {
+        int currentLineCursor = position;
+        Console.SetCursorPosition(0, position);
+        Console.Write(new string(' ', Console.WindowWidth));
+        Console.SetCursorPosition(0, currentLineCursor);
     }
 
     public static void GetUserInput(string input)
     {
-        Controller.GetUserInput(input);
+        //Controller.GetUserInput(input);
     }
 
     public static string DisplaySortOptionScreen()
@@ -34,11 +57,6 @@ Error will be shown if no length is given.
 >> ";
     }
 
-    //public static string DisplayArrayRangeScreen()
-    //{
-    //    return @""
-    //}
-
     public static string DisplayHappyOutputScreen(int[] arrayUnsorted, int[] arraySorted, double timeTaken)
     {
         return @"Output
@@ -53,7 +71,8 @@ Time taken:
     public static string DisplayUnhappyOutputScreen(int[] arrayUnsorted, string errorMessage, double timeTaken)
     {
         return @"Output
-Array unsorted:Array sorted: Error and why?
+Array unsorted: {}
+Array sorted: Error and why?
 Time taken:
 1 Again?
 2 Exit?
