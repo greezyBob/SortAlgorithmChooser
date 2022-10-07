@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks.Sources;
 using Model;
 
-namespace Controller
+namespace SortManagerControllers
 {
     public class SortFactory
     {

@@ -1,6 +1,6 @@
-﻿using Controller;
+﻿
 
-namespace View;
+namespace SortManagerViews;
 
 public class View
 {

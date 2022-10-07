@@ -1,4 +1,4 @@
-﻿namespace Controller
+﻿namespace SortManagerControllers
 {
     internal class Program
     {
