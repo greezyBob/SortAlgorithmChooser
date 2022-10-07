@@ -8,7 +8,7 @@ namespace Controller
 {
     public class SortFactory
     {
-        public int[] ChooseSorter(int input, int[] arr)
+        public static int[] ChooseSorter(int input, int[] arr)
         {
             int[] result = new int[arr.Length];
             if (input == 1)

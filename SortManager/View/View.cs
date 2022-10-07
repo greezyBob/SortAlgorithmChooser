@@ -35,9 +35,9 @@ sdfs
         Console.SetCursorPosition(0, currentLineCursor);
     }
 
-    public static void GetUserInput(string input)
+    public static void GetUserInput()
     {
-        //Controller.GetUserInput(input);
+        Console.ReadLine();
     }
 
     public static string DisplaySortOptionScreen()
