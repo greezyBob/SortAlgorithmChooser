@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Model
 {
-    public class MergeSortModel : ISortable
+    public class _model : ISortable
     {
         public int[] Sort(int[] arr)
         {
@@ -28,7 +28,7 @@ namespace Model
             return Merge(leftArr, rightArr);
         }
 
-        private int[] Merge(int[] arr1, int[] arr2)
+        public int[] Merge(int[] arr1, int[] arr2)
         {
             int[] result = new int[arr1.Length + arr2.Length];
             int i = 0, j = 0, k = 0;
