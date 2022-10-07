@@ -4,38 +4,60 @@ public class View
 {
     static void Main(string[] args)
     {
-        Console.SetWindowSize(1500, 900);
+        Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
+        Console.SetWindowPosition(0, 0);
         Console.WriteLine(GetAsciiArt());
-    }
-
-    public static int GetUserInput(string input)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static void DisplaySortOptionScreen()
-    {
+        //Get from controller, what to display.
+        
 
     }
 
-    public static void DisplayArrayLengthScreen()
+    public static void GetUserInput(string input)
     {
-
+        Controller.GetUserInput(input);
     }
 
-    public static void DisplayArrayRangeScreen()
+    public static string DisplaySortOptionScreen()
     {
-
+        return @"Choose your option
+1 Bubble sort
+2 Merge sort
+3 .NET sort
+4 Exit  
+>>";
     }
 
-    public static void DisplayHappyOutputScreen()
+    public static string DisplayArrayLengthScreen()
     {
-
+        return @"Input Array Length
+Error will be shown if no length is given.
+>> ";
     }
 
-    public static void DisplayUnhappyOutputScreen()
-    {
+    //public static string DisplayArrayRangeScreen()
+    //{
+    //    return @""
+    //}
 
+    public static string DisplayHappyOutputScreen(int[] arrayUnsorted, int[] arraySorted, double timeTaken)
+    {
+        return @"Output
+Array unsorted:
+Array sorted:
+Time taken:
+1 Again?
+2 Exit?
+>>";
+    }
+
+    public static string DisplayUnhappyOutputScreen(int[] arrayUnsorted, string errorMessage, double timeTaken)
+    {
+        return @"Output
+Array unsorted:Array sorted: Error and why?
+Time taken:
+1 Again?
+2 Exit?
+>>";
     }
 
     public static string GetAsciiArt()
@@ -75,6 +97,10 @@ AAAAAAA                   AAAAAAARRRRRRRR     RRRRRRRRRRRRRRR     RRRRRRRAAAAAAA
   SSSSSSS     S:::::SO:::::::OOO:::::::ORR:::::R     R:::::R      TT:::::::TT      EE::::::EEEEEEEE:::::ERR:::::R     R:::::R
   S::::::SSSSSS:::::S OO:::::::::::::OO R::::::R     R:::::R      T:::::::::T      E::::::::::::::::::::ER::::::R     R:::::R
   S:::::::::::::::SS    OO:::::::::OO   R::::::R     R:::::R      T:::::::::T      E::::::::::::::::::::ER::::::R     R:::::R
-   SSSSSSSSSSSSSSS        OOOOOOOOO     RRRRRRRR     RRRRRRR      TTTTTTTTTTT      EEEEEEEEEEEEEEEEEEEEEERRRRRRRR     RRRRRRR";
+   SSSSSSSSSSSSSSS        OOOOOOOOO     RRRRRRRR     RRRRRRR      TTTTTTTTTTT      EEEEEEEEEEEEEEEEEEEEEERRRRRRRR     RRRRRRR
+
+______________________________________________________________________________________________________________________________
+******************************************************************************************************************************
+______________________________________________________________________________________________________________________________";
     }
 } 
