@@ -7,6 +7,6 @@ namespace Model
 {
     public interface ISortable
     {
-        void Sort();
+        int[] Sort(int[] nums);
     }
 }

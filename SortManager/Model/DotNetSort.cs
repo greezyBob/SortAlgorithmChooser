@@ -7,9 +7,10 @@ namespace Model
 {
     public class DotNetSort : ISortable
     {
-        public void Sort()
+        public int[] Sort(int[] nums)
         {
-            throw new NotImplementedException();
+            Array.Sort(nums);
+            return nums;
         }
     }
 }
