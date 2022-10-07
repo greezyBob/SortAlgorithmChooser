@@ -1,31 +1,24 @@
-﻿using Controller;
+﻿
 
-namespace View;
+namespace SortManagerViews;
 
 public class View
 {
 
     static void Main(string[] args)
     {
-        Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
-        Console.SetWindowPosition(0, 0);
+        Console.SetWindowSize(Console.LargestWindowWidth - 40, Console.LargestWindowHeight - 10);
         Console.WriteLine(GetAsciiArt());
-        //Get from controller, what to display.
-        Console.WriteLine(@"dkfnskdnv
-dsfgsfds
-sdfsdfsdf
-sdfsafs\SADF
-DFSDFW
-sdfs
-.");
         ClearUpToBoarder();
+        DisplaySortOptionScreen();
     }
 
     public static void ClearUpToBoarder()
     {
-        for (int i = 40; i < 60; i++)
+        for (int i = 50; i >= 40; i--)
         {
             ClearCurrentConsoleLine(i);
+            Thread.Sleep(100);
         }
         Console.SetCursorPosition(0, 40);
     }
@@ -40,11 +33,13 @@ sdfs
 
     public static void GetUserInput(string? input)
     {
-        Controller.ParseInput(input);
+        //Controller.ParseInput(input);
     }
 
     public static void DisplaySortOptionScreen()
     {
+        Console.BackgroundColor = ConsoleColor.DarkYellow;
+        Console.ForegroundColor = ConsoleColor.Black;
         Console.WriteLine(@"Choose your option.
 1 - Bubble sort
 2 - Merge sort
@@ -53,11 +48,12 @@ sdfs
 >> ");
         GetUserInput(Console.ReadLine());
         ClearUpToBoarder();
-
     }
 
     public static void DisplayArrayLengthScreen()
     {
+        Console.BackgroundColor = ConsoleColor.Blue;
+        Console.ForegroundColor = ConsoleColor.White;
         Console.WriteLine(@"Input Array Length.
 Error will be shown if no length is given.
 >> ");
@@ -67,6 +63,8 @@ Error will be shown if no length is given.
 
     public static void DisplayHappyOutputScreen(int[] arrayUnsorted, int[] arraySorted, double timeTaken)
     {
+        Console.BackgroundColor = ConsoleColor.Green;
+        Console.ForegroundColor = ConsoleColor.White;
         Console.WriteLine($@"Output.
 Array unsorted: {arrayUnsorted}
 Array sorted: {arraySorted}
@@ -80,6 +78,8 @@ Time taken: {timeTaken}
 
     public static void DisplayUnhappyOutputScreen(int[] arrayUnsorted, string errorMessage, double timeTaken)
     {
+        Console.BackgroundColor = ConsoleColor.Red;
+        Console.ForegroundColor = ConsoleColor.White;
         Console.WriteLine($@"Output.
 Array unsorted: {arrayUnsorted}
 Array sorted: ERROR: {errorMessage}
