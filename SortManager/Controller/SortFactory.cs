@@ -18,7 +18,7 @@ namespace Controller
             }
             else if (input == 2)
             {
-                var sorter = new MergeSortModel();
+                var sorter = new _model();
                 result =  sorter.Sort(arr);
             }
             else if (input == 3)
