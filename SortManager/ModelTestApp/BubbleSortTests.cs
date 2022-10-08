@@ -11,14 +11,6 @@ namespace ModelTestApp
     {
         private BubbleSortModel _model;
 
-        static object[] BubbleSortArray =
-{
-        new object[] { new int[] { 3423, 644, 43279, 454, 43827, 3129 }, new int[] { 454, 644, 3129, 3423, 43279, 43827 } },
-        new object[] { new int[] { 10, 64, 43, 45, 0, 31 }, new int[] { 0, 10, 31, 43, 45, 64 } },
-        new object[] { new int[] { -10, 604, -88, 4500, 111, 31000 }, new int[] { -88, -10, 111, 604, 4500, 31000 } },
-        new object[] { new int[] { 126, 110, 118, 10 }, new int[] { 10, 110, 118, 126 } }
-    };
-
         [OneTimeSetUp]
         public void SetUp()
         {
@@ -39,8 +31,8 @@ namespace ModelTestApp
             Assert.That(_model.Sort(nums).Length, Is.EqualTo(6));
         }
 
-        [TestCaseSource(nameof(BubbleSortArray))]
-    
+        [TestCaseSource(typeof(TestCaseSourceClass), nameof(TestCaseSourceClass.TestCaseArrays))]
+
         public void GivenArray_Sort_ReturnsSortedArray(int[] nums, int[] expected)
         {
             Assert.That(_model.Sort(nums), Is.EqualTo(expected));
