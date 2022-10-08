@@ -5,10 +5,20 @@ namespace View;
 public class View
 {
 
-    static void Main(string[] args)
+    public string Input { get; set; }
+
+    public View()
+    { 
+    }
+
+    public static void SetUp()
     {
         Console.SetWindowSize(Console.LargestWindowWidth - 40, Console.LargestWindowHeight - 10);
         Console.WriteLine(GetAsciiArt());
+    }
+
+    public void DisplayWelcomeScreen()
+    {
         ClearUpToBoarder();
         DisplaySortOptionScreen();
     }
@@ -134,4 +144,4 @@ ________________________________________________________________________________
 ******************************************************************************************************************************
 ______________________________________________________________________________________________________________________________";
     }
-} 
+}
