@@ -6,39 +6,13 @@ namespace SortManagerView;
 public class View
 {
     public string? Input { get; set; }
+
+    #region CONSOLE_CONFIG_AND_STARTUP
+
     public void Setup()
     {
         Console.SetWindowSize(Console.LargestWindowWidth - 220, Console.LargestWindowHeight - 20);
         DisplayWelcomeScreen();
-    }
-    public void DisplayWelcomeScreen()
-    {
-        DisplayAsciiPop();
-        ClearUpToBoarder();
-        //DisplaySortOptionScreen();
-    }
-
-    public void DisplayAsciiPop()
-    {
-        Console.ForegroundColor = ConsoleColor.Black;
-        Console.WriteLine(GetAsciiArt());
-        Thread.Sleep(200);
-        Console.ForegroundColor = ConsoleColor.DarkGray;
-        Console.Clear();
-        Console.WriteLine(GetAsciiArt());
-        Thread.Sleep(200);
-        Console.ForegroundColor = ConsoleColor.Gray;
-        Console.Clear();
-        Console.WriteLine(GetAsciiArt());
-        Thread.Sleep(200);
-        Console.ForegroundColor = ConsoleColor.White;
-        Console.Clear();
-        Console.WriteLine(GetAsciiArt());
-        Thread.Sleep(200);
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.Clear();
-        Console.WriteLine(GetAsciiArt());
-        Thread.Sleep(200);
     }
 
     public void ClearUpToBoarder()
@@ -59,46 +33,25 @@ public class View
         Console.SetCursorPosition(0, currentLineCursor);
     }
 
-    public void DisplayInvalidSortMessage()
-    {
-        DisplayInvalidInputMessage();
-        DisplaySortOptionScreen();
-    }
-
-    private void DisplayInvalidInputMessage()
-    {
-        ConsoleWritesRed();
-        Console.WriteLine($"Your input:{Input} is Invalid");
-        ConsoleWritesGreen();
-    }
-
-
-    public void DisplayInvalidRetyMessage()
-    {
-        DisplayInvalidInputMessage();
-        Console.WriteLine($@"
-            1 Again?
-            2 Exit?
-            >> ");
-        Input = Console.ReadLine();
-        ClearUpToBoarder();
-    }
-
     public void ClearScreen()
     {
         Console.Clear();
+
     }
 
-    public void DisplayInvalidLengthMessage()
+    #endregion
+
+    #region SCREENS
+
+    public void DisplayWelcomeScreen()
     {
-        DisplayInvalidInputMessage();
-        DisplayArrayLengthScreen();
+        DisplayAsciiPop();
+        ClearUpToBoarder();
     }
 
     public void DisplaySortOptionScreen()
     {
-        Console.BackgroundColor = ConsoleColor.Green;
-        Console.ForegroundColor = ConsoleColor.Black;
+        ConsoleWritesGreen();
         Console.WriteLine
             (
                 @"Choose your option.
@@ -114,8 +67,7 @@ public class View
 
     public void DisplayArrayLengthScreen()
     {
-        Console.BackgroundColor = ConsoleColor.Green;
-        Console.ForegroundColor = ConsoleColor.Black;
+        ConsoleWritesGreen();
         Console.WriteLine(@"Input Array Length.
             Error will be shown if no length is given.
             >> ");
@@ -125,8 +77,8 @@ public class View
 
     public void DisplayHappyOutputScreen(string arrayUnsorted, string arraySorted, double timeTaken)
     {
-        Console.BackgroundColor = ConsoleColor.Green;
-        Console.ForegroundColor = ConsoleColor.Black;
+        CreateSuspense();
+        ConsoleWritesGreen();
         Console.WriteLine($@"Output.
             Array unsorted: {arrayUnsorted}
             Array sorted: {arraySorted}
@@ -138,10 +90,40 @@ public class View
         ClearUpToBoarder();
     }
 
+    public void DisplayInvalidSortMessage()
+    {
+        ConsoleWritesRed();
+        DisplayInvalidInputMessage();
+        DisplaySortOptionScreen();
+    }
+
+    private void DisplayInvalidInputMessage()
+    {
+        ConsoleWritesRed();
+        Console.WriteLine($"Your input:{Input} is Invalid");
+        ConsoleWritesGreen();
+    }
+
+    public void DisplayInvalidRetryMessage()
+    {
+        DisplayInvalidInputMessage();
+        Console.WriteLine($@"
+            1 Again?
+            2 Exit?
+            >> ");
+        Input = Console.ReadLine();
+        ClearUpToBoarder();
+    }
+
+    public void DisplayInvalidLengthMessage()
+    {
+        DisplayInvalidInputMessage();
+        DisplayArrayLengthScreen();
+    }
+
     public void DisplayUnhappyOutputScreen(int[] arrayUnsorted, string errorMessage, double timeTaken)
     {
-        Console.BackgroundColor = ConsoleColor.Red;
-        Console.ForegroundColor = ConsoleColor.Black;
+        ConsoleWritesRed();
         Console.WriteLine($@"Output.
             Array unsorted: {arrayUnsorted}
             Array sorted: ERROR: {errorMessage}
@@ -153,9 +135,27 @@ public class View
         ClearUpToBoarder();
     }
 
+    #endregion
 
+    #region AESTHETIC_METHODS_AND_STRINGS
 
-    public static string GetAsciiArt()
+    public void CreateSuspense()
+    {
+        ConsoleWritesGreenTextBlackBG();
+        ClearUpToBoarder();
+        Thread.Sleep(1000);
+        Console.WriteLine("Are you ready?");
+        Thread.Sleep(1000);
+        Console.WriteLine("3..");
+        Thread.Sleep(1000);
+        Console.WriteLine("2..");
+        Thread.Sleep(1000);
+        Console.WriteLine("1..");
+        Thread.Sleep(1000);
+        ClearUpToBoarder();
+    }
+
+    public string GetAsciiArt()
     {
         return @"
                AAA               RRRRRRRRRRRRRRRRR   RRRRRRRRRRRRRRRRR                  AAA           YYYYYYY       YYYYYYY   
@@ -198,16 +198,54 @@ ________________________________________________________________________________
 ******************************************************************************************************************************
 ______________________________________________________________________________________________________________________________";
     }
-    private static void ConsoleWritesGreen()
+    public void ConsoleWritesGreen()
     {
         Console.BackgroundColor = ConsoleColor.Green;
         Console.ForegroundColor = ConsoleColor.Black;
     }
 
-    private static void ConsoleWritesRed()
+    public void ConsoleWritesRed()
     {
         Console.BackgroundColor = ConsoleColor.Red;
         Console.ForegroundColor = ConsoleColor.White;
     }
-    
-} 
+
+    public void ConsoleWritesNormal()
+    {
+        Console.BackgroundColor = ConsoleColor.Black;
+        Console.ForegroundColor = ConsoleColor.White;
+    }
+
+    public void ConsoleWritesGreenTextBlackBG()
+    {
+        Console.BackgroundColor = ConsoleColor.Black;
+        Console.ForegroundColor = ConsoleColor.Green;
+    }
+
+    public void DisplayAsciiPop()
+    {
+        ConsoleWritesNormal();
+        Console.ForegroundColor = ConsoleColor.Black;
+        Console.WriteLine(GetAsciiArt());
+        Thread.Sleep(200);
+        Console.ForegroundColor = ConsoleColor.DarkGray;
+        Console.Clear();
+        Console.WriteLine(GetAsciiArt());
+        Thread.Sleep(200);
+        Console.ForegroundColor = ConsoleColor.Gray;
+        Console.Clear();
+        Console.WriteLine(GetAsciiArt());
+        Thread.Sleep(200);
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Clear();
+        Console.WriteLine(GetAsciiArt());
+        Thread.Sleep(200);
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.Clear();
+        Console.WriteLine(GetAsciiArt());
+        Thread.Sleep(200);
+    }
+
+    #endregion
+
+}

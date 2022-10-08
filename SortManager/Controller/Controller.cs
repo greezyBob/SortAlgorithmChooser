@@ -88,7 +88,7 @@ public class Controller
 
         while(number < 1 || number > 2)
         {
-            _view.DisplayInvalidRetyMessage();
+            _view.DisplayInvalidRetryMessage();
             number = ParseInput(_view.Input);
         }
 
