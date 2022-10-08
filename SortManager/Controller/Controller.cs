@@ -1,7 +1,5 @@
 ﻿using Model;
 using SortManagerView;
-using System.Drawing;
-using System.Globalization;
 using System.Text;
 
 namespace SortManagerController;
@@ -36,12 +34,14 @@ public class Controller
     private int GetLengthOfArray()
     {
         _view.DisplayArrayLengthScreen();
-        
-        string length = Console.ReadLine();
 
-        int size = ParseInput(length);
+        int size = ParseInput(_view.Input);
 
-        if (size < 1 || size > 100) throw new ArgumentException();
+        while (size < 1 || size > 100)
+        {
+            _view.DisplayInvalidLengthMessage();
+            size = ParseInput(_view.Input);
+        }
 
         return size;
     }
@@ -49,30 +49,31 @@ public class Controller
     private int ParseInput(string? input)
     {
         bool success = int.TryParse(input, out int number);
-        if (success) return number;
-        else _view.DisplayInvalidInputMessage();
-
-        return 0;
+        
+        return success ? number : 0;
     }
 
     public void GetSorter()
     {
         _view.DisplaySortOptionScreen();
-        string input = Console.ReadLine();
 
-        int number = ParseInput(input);
+        int number = ParseInput(_view.Input);
 
-        if (number > 0 && number < 4)
+        while (number <= 0 || number > 4)
         {
-            _sorter = SortFactory.ChooseSorter(number);
-            
+            _view.DisplayInvalidSortMessage();
+            number = ParseInput(_view.Input);
         }
+            
+        _sorter = SortFactory.ChooseSorter(number);
     }
 
     public void GetSotedArray()
     {
+        var timeBefore = DateTime.Now;
         int[] sorted = _sorter.Sort(_unsorted);
-        _view.DisplayHappyOutputScreen(ArrayToString(_unsorted), ArrayToString(sorted), 0.2);
+        TimeSpan timeSpan = DateTime.Now - timeBefore;
+        _view.DisplayHappyOutputScreen(ArrayToString(_unsorted), ArrayToString(sorted), timeSpan.TotalSeconds);
     }
 
     public string ArrayToString(int[] array)
