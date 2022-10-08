@@ -151,7 +151,7 @@ public class View
         Console.WriteLine("2..");
         Thread.Sleep(1000);
         Console.WriteLine("1..");
-        Thread.Sleep(1000);
+        Thread.Sleep(2000);
         ClearUpToBoarder();
     }
 
