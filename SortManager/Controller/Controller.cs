@@ -14,7 +14,13 @@ public class Controller
     public void GenerateUnsortedArray()
     {
         int length = GetLengthOfArray();
+        var arr = RandomArray(length);
 
+        _unsorted = arr;
+    }
+
+    public int[] RandomArray(int length)
+    {
         int[] arr = new int[length];
         Random rnd = new Random();
 
@@ -23,8 +29,7 @@ public class Controller
             int rndNumber = rnd.Next(1, 100);
             arr[i] = rndNumber;
         }
-
-        _unsorted = arr;
+        return arr;
     }
 
     public void SetUp()
@@ -47,7 +52,7 @@ public class Controller
         return size;
     }
 
-    private int ParseInput(string? input)
+    public int ParseInput(string? input)
     {
         bool success = int.TryParse(input, out int number);
         
