@@ -47,7 +47,18 @@ namespace ControllerTest
         [TestCase(99, 99)]
         public void GivenLength_RandomArray_ReturnsArrayOfLength(int length, int expected)
         {
-            var output = _controller.RandomArray(length).Length;
+            var rnd = new Random();
+            var output = _controller.RandomArray(length, rnd).Length;
+            Assert.That(output, Is.EqualTo(expected));
+        }
+
+        [TestCase(1, new int[5] { 25, 11, 47, 77, 66 })]
+        [TestCase(99, new int[5] { 45, 86, 96, 69, 80 })]
+        public void GivenSeed_RandomArray_ReturnsArrayOfLength(int seed, int[] expected)
+        {
+            var length = 5;
+            var rnd = new Random(seed);
+            var output = _controller.RandomArray(length, rnd);
             Assert.That(output, Is.EqualTo(expected));
         }
 

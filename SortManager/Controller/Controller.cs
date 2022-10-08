@@ -14,15 +14,16 @@ public class Controller
     public void GenerateUnsortedArray()
     {
         int length = GetLengthOfArray();
-        var arr = RandomArray(length);
+        Random rnd = new Random();
+        var arr = RandomArray(length, rnd);
 
         _unsorted = arr;
     }
 
-    public int[] RandomArray(int length)
+    public int[] RandomArray(int length, Random rnd)
     {
         int[] arr = new int[length];
-        Random rnd = new Random();
+        
 
         for (int i = 0; i < arr.Length; i++)
         {
