@@ -24,6 +24,8 @@
 8. [Acknowledgements](#Acknowledgements)
   
  # About The Project
+ 
+The sort manager is a console application that conforms to the MVC architecture and provides a basic interface for the purpose of displaying the effectiveness of each sorting algorithm. The user can choose the type of sorting algoritm, for example Merge sort, the length of the array, sorts the array in ascending order and displays the results on screen along with the timer to show the speed of the algorithm.
 
 ---
 ## Overview
