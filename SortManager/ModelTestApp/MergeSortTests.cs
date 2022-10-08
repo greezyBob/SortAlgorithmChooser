@@ -6,7 +6,7 @@ namespace ModelTestApp
 {
     public class MergeSortTests
     {
-        private _model _model;
+        private MergeSortModel _model;
 
         static object[] mergeSortArray =
     {
@@ -19,7 +19,7 @@ namespace ModelTestApp
         [OneTimeSetUp]
         public void SetUp()
         {
-            _model = new _model();
+            _model = new MergeSortModel();
         }
 
         //Test for null

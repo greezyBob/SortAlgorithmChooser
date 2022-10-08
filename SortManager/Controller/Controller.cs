@@ -23,7 +23,7 @@ public class Controller
     public int[] RandomArray(int length, Random rnd)
     {
         int[] arr = new int[length];
-        
+
 
         for (int i = 0; i < arr.Length; i++)
         {

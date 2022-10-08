@@ -11,7 +11,7 @@ public class View
 
     public void Setup()
     {
-        Console.SetWindowSize(Console.LargestWindowWidth - 220, Console.LargestWindowHeight - 20);
+        Console.SetWindowSize(130, 50);
         DisplayWelcomeScreen();
     }
 
