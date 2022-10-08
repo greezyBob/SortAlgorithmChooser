@@ -1,5 +1,30 @@
 # SortAlgorithmChooser
 
+### Participants
+
+- Robert Green(Scrum Master)
+- Mark Pollard
+- Michael Bonardi Davies
+- Ameer Imam Al-Murtaza Gardezi
+- Rahul Patel
+- Jai Bharat Kothia
+
+## Table Of Contents
+
+1. [About The Project](#About The Project)
+ - [Built With](#Built With)
+2. [Getting Started](#Getting Started)
+ - [Prerequisites](#Prerequisites)
+ - [Installation](#Installation)
+3. [Usage](#Usage)
+4. [Roadmap](#Roadmap)
+5. [Contributing](#Installation)
+6. [License](#License)
+7. [Contact](#Contact)
+8. [Acknowledgements](#Acknowledgements)
+  
+ # About The Project
+
 ---
 ## Overview
 ---
