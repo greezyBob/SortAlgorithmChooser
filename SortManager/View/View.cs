@@ -44,7 +44,7 @@ public class View
         Console.WriteLine($"Your input:{Input} is Invalid");
     }
 
-    public void DisplayInvalidRetyMessage()
+    public void DisplayInvalidRetryMessage()
     {
         DisplayInvalidInputMessage();
         Console.WriteLine($@"
