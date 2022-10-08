@@ -53,7 +53,7 @@ namespace ControllerTest
         }
 
         [TestCase(1, new int[5] { 25, 11, 47, 77, 66 })]
-        [TestCase(99, new int[5] { 45, 86, 96, 69, 80 })]
+        [TestCase(99, new int[5] { 45, 86, 96, 69, 90 })]
         public void GivenSeed_RandomArray_ReturnsArrayOfLength(int seed, int[] expected)
         {
             var length = 5;
