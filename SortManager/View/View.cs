@@ -8,12 +8,14 @@ public class View
     public string? Input { get; set; }
     public void Setup()
     {
+        ClearScreen();
         Console.SetWindowSize(Console.LargestWindowWidth - 40, Console.LargestWindowHeight - 10);
+        Console.BackgroundColor = ConsoleColor.Black;
         Console.WriteLine(GetAsciiArt());
         ClearUpToBoarder();
     }
 
-    public static void ClearUpToBoarder()
+    public void ClearUpToBoarder()
     {
         for (int i = 50; i >= 40; i--)
         {
@@ -23,7 +25,7 @@ public class View
         Console.SetCursorPosition(0, 40);
     }
 
-    public static void ClearCurrentConsoleLine(int position)
+    public void ClearCurrentConsoleLine(int position)
     {
         int currentLineCursor = position;
         Console.SetCursorPosition(0, position);
@@ -40,6 +42,22 @@ public class View
     private void DisplayInvalidInputMessage()
     {
         Console.WriteLine($"Your input:{Input} is Invalid");
+    }
+
+    public void DisplayInvalidRetyMessage()
+    {
+        DisplayInvalidInputMessage();
+        Console.WriteLine($@"
+            1 Again?
+            2 Exit?
+            >> ");
+        Input = Console.ReadLine();
+        ClearUpToBoarder();
+    }
+
+    public void ClearScreen()
+    {
+        Console.Clear();
     }
 
     public void DisplayInvalidLengthMessage()

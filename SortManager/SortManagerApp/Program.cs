@@ -7,11 +7,16 @@ namespace SortManagerApp
         static void Main(string[] args)
         {
             Controller controller = new Controller();
-            
-            controller.SetUp();
-            controller.GetSorter();
-            controller.GenerateUnsortedArray();
-            controller.GetSotedArray();
+           
+            while (controller.Running)
+            {
+                controller.SetUp();
+                controller.GetSorter();
+                if (!controller.Running) break;
+                controller.GenerateUnsortedArray();
+                controller.GetSotedArray();
+                controller.CheckRetry();
+            }
         }
     }
 }

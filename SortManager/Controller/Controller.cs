@@ -9,6 +9,7 @@ public class Controller
     private View _view = new View();
     private int[] _unsorted;
     private ISortable _sorter;
+    public bool Running { get; set; } = true;
 
     public void GenerateUnsortedArray()
     {
@@ -64,16 +65,34 @@ public class Controller
             _view.DisplayInvalidSortMessage();
             number = ParseInput(_view.Input);
         }
-            
-        _sorter = SortFactory.ChooseSorter(number);
+
+        if (number == 4) Running = false;
+        else _sorter = SortFactory.ChooseSorter(number);
     }
 
     public void GetSotedArray()
     {
+        // copy unsorted due to Array.Sort mutation
+        int[] unsorted = new int[_unsorted.Length];
+        _unsorted.CopyTo(unsorted, 0);
+
         var timeBefore = DateTime.Now;
         int[] sorted = _sorter.Sort(_unsorted);
         TimeSpan timeSpan = DateTime.Now - timeBefore;
-        _view.DisplayHappyOutputScreen(ArrayToString(_unsorted), ArrayToString(sorted), timeSpan.TotalSeconds);
+        _view.DisplayHappyOutputScreen(ArrayToString(unsorted), ArrayToString(sorted), timeSpan.TotalSeconds);
+    }
+
+    public void CheckRetry()
+    {
+        int number = ParseInput(_view.Input);
+
+        while(number < 1 || number > 2)
+        {
+            _view.DisplayInvalidRetyMessage();
+            number = ParseInput(_view.Input);
+        }
+
+        Running = number == 2 ? false : true;
     }
 
     public string ArrayToString(int[] array)
