@@ -1,16 +1,17 @@
-﻿using SortManagerControllers;
-using 
+﻿using SortManagerController;
 
 namespace SortManagerApp
 {
     internal class Program
     {
-        private static Controller controller;
-        private static View view;
         static void Main(string[] args)
         {
-            controller = new Controller();
+            Controller controller = new Controller();
             
+            controller.SetUp();
+            controller.GetSorter();
+            controller.GenerateUnsortedArray();
+            controller.GetSotedArray();
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Model
 {
-    public class _model : ISortable
+    public class MergeSortModel : ISortable
     {
         public int[] Sort(int[] arr)
         {

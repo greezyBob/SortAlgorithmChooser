@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks.Sources;
 using Model;
 
-namespace Controller
+namespace SortManagerController
 {
-    public class SortFactory
+    public static class SortFactory
     {
-        public ISortable ChooseSorter(int input)
+        public static ISortable ChooseSorter(int input)
         {
             switch (input)
             {
