@@ -8,11 +8,37 @@ public class View
     public string? Input { get; set; }
     public void Setup()
     {
-        ClearScreen();
-        Console.SetWindowSize(Console.LargestWindowWidth - 40, Console.LargestWindowHeight - 10);
-        Console.BackgroundColor = ConsoleColor.Black;
-        Console.WriteLine(GetAsciiArt());
+        Console.SetWindowSize(Console.LargestWindowWidth - 220, Console.LargestWindowHeight - 20);
+        DisplayWelcomeScreen();
+    }
+    public void DisplayWelcomeScreen()
+    {
+        DisplayAsciiPop();
         ClearUpToBoarder();
+        //DisplaySortOptionScreen();
+    }
+
+    public void DisplayAsciiPop()
+    {
+        Console.ForegroundColor = ConsoleColor.Black;
+        Console.WriteLine(GetAsciiArt());
+        Thread.Sleep(200);
+        Console.ForegroundColor = ConsoleColor.DarkGray;
+        Console.Clear();
+        Console.WriteLine(GetAsciiArt());
+        Thread.Sleep(200);
+        Console.ForegroundColor = ConsoleColor.Gray;
+        Console.Clear();
+        Console.WriteLine(GetAsciiArt());
+        Thread.Sleep(200);
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Clear();
+        Console.WriteLine(GetAsciiArt());
+        Thread.Sleep(200);
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.Clear();
+        Console.WriteLine(GetAsciiArt());
+        Thread.Sleep(200);
     }
 
     public void ClearUpToBoarder()
@@ -41,8 +67,11 @@ public class View
 
     private void DisplayInvalidInputMessage()
     {
+        ConsoleWritesRed();
         Console.WriteLine($"Your input:{Input} is Invalid");
+        ConsoleWritesGreen();
     }
+
 
     public void DisplayInvalidRetyMessage()
     {
@@ -68,7 +97,7 @@ public class View
 
     public void DisplaySortOptionScreen()
     {
-        Console.BackgroundColor = ConsoleColor.DarkYellow;
+        Console.BackgroundColor = ConsoleColor.Green;
         Console.ForegroundColor = ConsoleColor.Black;
         Console.WriteLine
             (
@@ -85,8 +114,8 @@ public class View
 
     public void DisplayArrayLengthScreen()
     {
-        Console.BackgroundColor = ConsoleColor.Blue;
-        Console.ForegroundColor = ConsoleColor.White;
+        Console.BackgroundColor = ConsoleColor.Green;
+        Console.ForegroundColor = ConsoleColor.Black;
         Console.WriteLine(@"Input Array Length.
             Error will be shown if no length is given.
             >> ");
@@ -97,7 +126,7 @@ public class View
     public void DisplayHappyOutputScreen(string arrayUnsorted, string arraySorted, double timeTaken)
     {
         Console.BackgroundColor = ConsoleColor.Green;
-        Console.ForegroundColor = ConsoleColor.White;
+        Console.ForegroundColor = ConsoleColor.Black;
         Console.WriteLine($@"Output.
             Array unsorted: {arrayUnsorted}
             Array sorted: {arraySorted}
@@ -112,7 +141,7 @@ public class View
     public void DisplayUnhappyOutputScreen(int[] arrayUnsorted, string errorMessage, double timeTaken)
     {
         Console.BackgroundColor = ConsoleColor.Red;
-        Console.ForegroundColor = ConsoleColor.White;
+        Console.ForegroundColor = ConsoleColor.Black;
         Console.WriteLine($@"Output.
             Array unsorted: {arrayUnsorted}
             Array sorted: ERROR: {errorMessage}
@@ -123,6 +152,8 @@ public class View
         Input = Console.ReadLine();
         ClearUpToBoarder();
     }
+
+
 
     public static string GetAsciiArt()
     {
@@ -167,6 +198,16 @@ ________________________________________________________________________________
 ******************************************************************************************************************************
 ______________________________________________________________________________________________________________________________";
     }
+    private static void ConsoleWritesGreen()
+    {
+        Console.BackgroundColor = ConsoleColor.Green;
+        Console.ForegroundColor = ConsoleColor.Black;
+    }
 
+    private static void ConsoleWritesRed()
+    {
+        Console.BackgroundColor = ConsoleColor.Red;
+        Console.ForegroundColor = ConsoleColor.White;
+    }
     
 } 
