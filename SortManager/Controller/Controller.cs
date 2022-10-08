@@ -1,5 +1,6 @@
 ﻿using Model;
 using SortManagerView;
+using System.Diagnostics;
 using System.Text;
 
 namespace SortManagerController;
@@ -9,6 +10,10 @@ public class Controller
     private View _view = new View();
     private int[] _unsorted;
     private ISortable _sorter;
+
+    //stopwatch
+    private Stopwatch _stopWatch = new Stopwatch();
+
     public bool Running { get; set; } = true;
 
     public void GenerateUnsortedArray()
@@ -56,7 +61,7 @@ public class Controller
     public int ParseInput(string? input)
     {
         bool success = int.TryParse(input, out int number);
-        
+
         return success ? number : 0;
     }
 
@@ -78,13 +83,18 @@ public class Controller
 
     public void GetSotedArray()
     {
+        //SortTimer sortTimer = new SortTimer();
+
         // copy unsorted due to Array.Sort mutation
         int[] unsorted = new int[_unsorted.Length];
         _unsorted.CopyTo(unsorted, 0);
 
-        var timeBefore = DateTime.Now;
+        _stopWatch.Reset();
+        _stopWatch.Start();
         int[] sorted = _sorter.Sort(_unsorted);
-        TimeSpan timeSpan = DateTime.Now - timeBefore;
+        _stopWatch.Stop();
+        TimeSpan timeSpan = _stopWatch.Elapsed;
+
         _view.DisplayHappyOutputScreen(ArrayToString(unsorted), ArrayToString(sorted), timeSpan.TotalSeconds);
     }
 
@@ -92,7 +102,7 @@ public class Controller
     {
         int number = ParseInput(_view.Input);
 
-        while(number < 1 || number > 2)
+        while (number < 1 || number > 2)
         {
             _view.DisplayInvalidRetryMessage();
             number = ParseInput(_view.Input);

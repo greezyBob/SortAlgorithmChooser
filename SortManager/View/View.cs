@@ -82,7 +82,7 @@ public class View
         Console.WriteLine($@"Output.
             Array unsorted: {arrayUnsorted}
             Array sorted: {arraySorted}
-            Time taken: {timeTaken}
+            Time taken: {timeTaken} miliseconds
             1 Again?
             2 Exit?
             >> ");
@@ -127,7 +127,7 @@ public class View
         Console.WriteLine($@"Output.
             Array unsorted: {arrayUnsorted}
             Array sorted: ERROR: {errorMessage}
-            Time taken: {timeTaken}
+            Time taken: {timeTaken} miliseconds
             1 Again?
             2 Exit?
             >> ");
@@ -200,8 +200,8 @@ ________________________________________________________________________________
     }
     public void ConsoleWritesGreen()
     {
-        Console.BackgroundColor = ConsoleColor.Green;
-        Console.ForegroundColor = ConsoleColor.Black;
+        Console.BackgroundColor = ConsoleColor.Black;
+        Console.ForegroundColor = ConsoleColor.Green;
     }
 
     public void ConsoleWritesRed()
