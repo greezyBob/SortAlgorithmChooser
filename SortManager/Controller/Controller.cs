@@ -104,6 +104,7 @@ public class Controller
             sb.Append($"{n}, ");
         }
         sb.Append("]");
+        sb.Replace(", ]", " ]");
 
         return sb.ToString();
     }
