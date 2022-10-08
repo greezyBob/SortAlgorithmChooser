@@ -11,9 +11,9 @@
 
 ## Table Of Contents
 
-1. [About The Project](#About The Project)
- - [Built With](#Built With)
-2. [Getting Started](#Getting Started)
+1. [About The Project](#AboutTheProject)
+ - [Built With](#BuiltWith)
+2. [Getting Started](#GettingStarted)
  - [Prerequisites](#Prerequisites)
  - [Installation](#Installation)
 3. [Usage](#Usage)
