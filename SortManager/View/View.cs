@@ -1,36 +1,31 @@
-﻿using Controller;
+﻿
+using System.Text;
 
-namespace View;
+namespace SortManagerView;
 
 public class View
 {
-
-    static void Main(string[] args)
+    public string? Input { get; set; }
+    public void Setup()
     {
-        Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
-        Console.SetWindowPosition(0, 0);
+        ClearScreen();
+        Console.SetWindowSize(Console.LargestWindowWidth - 40, Console.LargestWindowHeight - 10);
+        Console.BackgroundColor = ConsoleColor.Black;
         Console.WriteLine(GetAsciiArt());
-        //Get from controller, what to display.
-        Console.WriteLine(@"dkfnskdnv
-dsfgsfds
-sdfsdfsdf
-sdfsafs\SADF
-DFSDFW
-sdfs
-.");
         ClearUpToBoarder();
     }
 
-    public static void ClearUpToBoarder()
+    public void ClearUpToBoarder()
     {
-        for (int i = 40; i < 60; i++)
+        for (int i = 50; i >= 40; i--)
         {
             ClearCurrentConsoleLine(i);
+            Thread.Sleep(100);
         }
         Console.SetCursorPosition(0, 40);
     }
 
-    public static void ClearCurrentConsoleLine(int position)
+    public void ClearCurrentConsoleLine(int position)
     {
         int currentLineCursor = position;
         Console.SetCursorPosition(0, position);
@@ -38,56 +33,94 @@ sdfs
         Console.SetCursorPosition(0, currentLineCursor);
     }
 
-    public static void GetUserInput(string? input)
+    public void DisplayInvalidSortMessage()
     {
-        Controller.ParseInput(input);
+        DisplayInvalidInputMessage();
+        DisplaySortOptionScreen();
     }
 
-    public static void DisplaySortOptionScreen()
+    private void DisplayInvalidInputMessage()
     {
-        Console.WriteLine(@"Choose your option.
-1 - Bubble sort
-2 - Merge sort
-3 - .NET sort
-4 - Exit  
->> ");
-        GetUserInput(Console.ReadLine());
+        Console.WriteLine($"Your input:{Input} is Invalid");
+    }
+
+    public void DisplayInvalidRetyMessage()
+    {
+        DisplayInvalidInputMessage();
+        Console.WriteLine($@"
+            1 Again?
+            2 Exit?
+            >> ");
+        Input = Console.ReadLine();
         ClearUpToBoarder();
-
     }
 
-    public static void DisplayArrayLengthScreen()
+    public void ClearScreen()
     {
+        Console.Clear();
+    }
+
+    public void DisplayInvalidLengthMessage()
+    {
+        DisplayInvalidInputMessage();
+        DisplayArrayLengthScreen();
+    }
+
+    public void DisplaySortOptionScreen()
+    {
+        Console.BackgroundColor = ConsoleColor.DarkYellow;
+        Console.ForegroundColor = ConsoleColor.Black;
+        Console.WriteLine
+            (
+                @"Choose your option.
+                1 - Bubble sort
+                2 - Merge sort
+                3 - .NET sort
+                4 - Exit  
+                >> "
+            );
+        Input = Console.ReadLine();
+        ClearUpToBoarder();
+    }
+
+    public void DisplayArrayLengthScreen()
+    {
+        Console.BackgroundColor = ConsoleColor.Blue;
+        Console.ForegroundColor = ConsoleColor.White;
         Console.WriteLine(@"Input Array Length.
-Error will be shown if no length is given.
->> ");
-        GetUserInput(Console.ReadLine());
+            Error will be shown if no length is given.
+            >> ");
+        Input = Console.ReadLine();
         ClearUpToBoarder();
     }
 
-    public static void DisplayHappyOutputScreen(int[] arrayUnsorted, int[] arraySorted, double timeTaken)
+    public void DisplayHappyOutputScreen(string arrayUnsorted, string arraySorted, double timeTaken)
     {
+        Console.BackgroundColor = ConsoleColor.Green;
+        Console.ForegroundColor = ConsoleColor.White;
         Console.WriteLine($@"Output.
-Array unsorted: {arrayUnsorted}
-Array sorted: {arraySorted}
-Time taken: {timeTaken}
-1 Again?
-2 Exit?
->> ");
-        GetUserInput(Console.ReadLine());
+            Array unsorted: {arrayUnsorted}
+            Array sorted: {arraySorted}
+            Time taken: {timeTaken}
+            1 Again?
+            2 Exit?
+            >> ");
+        Input = Console.ReadLine();
         ClearUpToBoarder();
     }
 
-    public static void DisplayUnhappyOutputScreen(int[] arrayUnsorted, string errorMessage, double timeTaken)
+    public void DisplayUnhappyOutputScreen(int[] arrayUnsorted, string errorMessage, double timeTaken)
     {
+        Console.BackgroundColor = ConsoleColor.Red;
+        Console.ForegroundColor = ConsoleColor.White;
         Console.WriteLine($@"Output.
-Array unsorted: {arrayUnsorted}
-Array sorted: ERROR: {errorMessage}
-Time taken: {timeTaken}
-1 Again?
-2 Exit?
->> ");
-        GetUserInput(Console.ReadLine());
+            Array unsorted: {arrayUnsorted}
+            Array sorted: ERROR: {errorMessage}
+            Time taken: {timeTaken}
+            1 Again?
+            2 Exit?
+            >> ");
+        Input = Console.ReadLine();
         ClearUpToBoarder();
     }
 
@@ -134,4 +167,6 @@ ________________________________________________________________________________
 ******************************************************************************************************************************
 ______________________________________________________________________________________________________________________________";
     }
+
+    
 } 
