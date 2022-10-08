@@ -1,68 +1,111 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Model;
+using SortManagerView;
 using System.Text;
-using View;
 
-namespace Controller
+namespace SortManagerController;
+public class Controller
 {
-    public class Controller
+
+    private View _view = new View();
+    private int[] _unsorted;
+    private ISortable _sorter;
+    public bool Running { get; set; } = true;
+
+    public void GenerateUnsortedArray()
     {
-        public int[] UnsortedArray { get; private set; }
+        int length = GetLengthOfArray();
 
-        public void GenerateUnsortedArray(int x)
+        int[] arr = new int[length];
+        Random rnd = new Random();
+
+        for (int i = 0; i < arr.Length; i++)
         {
-            if (x < 1 || x > 100) throw new ArgumentException();
-
-
-
-            int[] arr = new int[x];
-            for (int i = 0; i < arr.Length; i++)
-            {
-                Random rnd = new Random();
-                int rndNumber = rnd.Next(1, 100);
-                arr[i] = x;
-            }
-            UnsortedArray = arr;
+            int rndNumber = rnd.Next(1, 100);
+            arr[i] = rndNumber;
         }
 
-
-
-        public (int[], int[]) ParseInput(string input)
-        {
-            int number;
-            SortFactory sortFactory = new SortFactory();
-            bool success = int.TryParse(input, out number);
-            if (success)
-            {
-                if (number > 0 && number < 4)
-                {
-                    int x;
-                    bool succes2 = int.TryParse(View.View.DisplayArrayLengthScreen(), out x);
-                    if (succes2)
-                    {
-                        if (x > 0 && x <= 100)
-                        {
-                            var z = sortFactory.ChooseSorter(number);
-                            GenerateUnsortedArray(x);
-                            var i = z.Sort(UnsortedArray);
-                            View.View.DisplayHappyOutputScreen(UnsortedArray, i, 1.00);
-                        }
-                        else
-                        {
-
-                        }
-                    }
-                    
-
-                }
-                
-            }
-            else
-            {
-                 
-            }
-        }
-
+        _unsorted = arr;
     }
+
+    public void SetUp()
+    {
+        _view.Setup();
+    }
+
+    private int GetLengthOfArray()
+    {
+        _view.DisplayArrayLengthScreen();
+
+        int size = ParseInput(_view.Input);
+
+        while (size < 1 || size > 100)
+        {
+            _view.DisplayInvalidLengthMessage();
+            size = ParseInput(_view.Input);
+        }
+
+        return size;
+    }
+
+    private int ParseInput(string? input)
+    {
+        bool success = int.TryParse(input, out int number);
+        
+        return success ? number : 0;
+    }
+
+    public void GetSorter()
+    {
+        _view.DisplaySortOptionScreen();
+
+        int number = ParseInput(_view.Input);
+
+        while (number <= 0 || number > 4)
+        {
+            _view.DisplayInvalidSortMessage();
+            number = ParseInput(_view.Input);
+        }
+
+        if (number == 4) Running = false;
+        else _sorter = SortFactory.ChooseSorter(number);
+    }
+
+    public void GetSotedArray()
+    {
+        // copy unsorted due to Array.Sort mutation
+        int[] unsorted = new int[_unsorted.Length];
+        _unsorted.CopyTo(unsorted, 0);
+
+        var timeBefore = DateTime.Now;
+        int[] sorted = _sorter.Sort(_unsorted);
+        TimeSpan timeSpan = DateTime.Now - timeBefore;
+        _view.DisplayHappyOutputScreen(ArrayToString(unsorted), ArrayToString(sorted), timeSpan.TotalSeconds);
+    }
+
+    public void CheckRetry()
+    {
+        int number = ParseInput(_view.Input);
+
+        while(number < 1 || number > 2)
+        {
+            _view.DisplayInvalidRetyMessage();
+            number = ParseInput(_view.Input);
+        }
+
+        Running = number == 2 ? false : true;
+    }
+
+    public string ArrayToString(int[] array)
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.Append("[ ");
+        foreach (int n in array)
+        {
+            sb.Append($"{n}, ");
+        }
+        sb.Append("]");
+
+        return sb.ToString();
+    }
+
 }
