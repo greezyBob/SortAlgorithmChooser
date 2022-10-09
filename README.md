@@ -1,43 +1,44 @@
 # SortAlgorithmChooser
 
-### Participants
-
-- Robert Green(Scrum Master)
-- Mark Pollard
-- Michael Bonardi Davies
-- Ameer Imam Al-Murtaza Gardezi
-- Rahul Patel
-- Jai Bharat Kothia
 
 ## Table Of Contents
 
-1. [About The Project](#AboutTheProject)
- - [Built With](#BuiltWith)
-2. [Getting Started](#GettingStarted)
- - [Prerequisites](#Prerequisites)
- - [Installation](#Installation)
-3. [Usage](#Usage)
-4. [Roadmap](#Roadmap)
-5. [Contributing](#Installation)
-6. [License](#License)
-7. [Contact](#Contact)
-8. [Acknowledgements](#Acknowledgements)
+1. [About The Project](#about-the-project)
+ - [Built With](#built-with)
+2. [Getting Started](#getting-started)
+ - [Prerequisites](#prerequisites)
+ - [Installation](#installation)
+3. [Usage](#usage)
+4. [Method](#method)
+5. [Sorting Algorithms](#sorting-algorithms)
+6. [Contributors](#contributors)
   
  # About The Project
  
 The sort manager is a console application that conforms to the MVC architecture and provides a basic interface for the purpose of displaying the effectiveness of each sorting algorithm. The user can choose the type of sorting algoritm, for example Merge sort, the length of the array, sorts the array in ascending order and displays the results on screen along with the timer to show the speed of the algorithm.
 
+### Built With
+
+- This application is built using .Net 6 and C#.
+
 ---
 ## Getting Started
----
+
+### Prerequisites
+
+- We recommend having the latest Visual Studio installed as well as C#.
+
+### Installation
+
 To get started with this project: 
+
+Clone the repo
 ```
 git clone https://github.com/greezyBob/SortAlgorithmChooser.git
 ```  
-## Prerequisites
 ---
 ## Usage
----
+
 * The user is presented with a number of sort algorithms to choose from (Console)
 * Decision is given via the command line Console.ReadLine()
 * The program will then ask for the length of an array via the command line
@@ -47,6 +48,32 @@ git clone https://github.com/greezyBob/SortAlgorithmChooser.git
     3. The sorted array after the algorithm has been executed
     4. Time taken
 
+---
+
+## Method
+
+---
+
+## Sorting Algorithms
+
+### Bubble Sort
+
+Bubble sort is the simplest sorting algorithm used in the Sort Manager. It is also the slowest because it steps through every element and swaps the next element with the previous if the next one is less than the previous. This sequence is repeated for the number of elements in the array i.e. if there are 10 elements in the array, the sequence will need 100 steps or 10<sup>2</sup>. This is also written as O(n<sup>2</sup>) using big-o notation.
+
+### Merge Sort
+
+Merge sort uses the divide and conquer method to sort the array by dividing it in half until each sub array has one element and then recombining these sub arrays in order. The steps are as follows: begin by dividing the array in two roughly equal parts and then recursively calling itself with each of those arrays. Continue the recursive decomposition of the array until the base case of the recursion is reached, where the list is divided into arrays of length one, which are by definition sorted. Then, as control passes back up the recursive calling structure, the algorithm merges into one sorted array the two sorted sub arrays resulting from the two recursive calls.
+
+### .Net Sort
 
 
-## Approach
+
+---
+### Contributors
+
+- Robert Green(Scrum Master)
+- Mark Pollard
+- Michael Bonardi Davies
+- Ameer Imam Al-Murtaza Gardezi
+- Rahul Patel
+- Jai Bharat Kothia
