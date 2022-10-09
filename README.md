@@ -4,10 +4,10 @@
 ## Table Of Contents
 
 1. [About The Project](#about-the-project)
- - [Built With](#built-with)
+    1. [Built With](#built-with)
 2. [Getting Started](#getting-started)
- - [Prerequisites](#prerequisites)
- - [Installation](#installation)
+    1. [Prerequisites](#prerequisites)
+    2. [Installation](#installation)
 3. [Usage](#usage)
 4. [Method](#method)
 5. [Sorting Algorithms](#sorting-algorithms)
@@ -62,11 +62,14 @@ Bubble sort is the simplest sorting algorithm used in the Sort Manager. It is al
 
 ### Merge Sort
 
-Merge sort uses the divide and conquer method to sort the array by dividing it in half until each sub array has one element and then recombining these sub arrays in order. The steps are as follows: begin by dividing the array in two roughly equal parts and then recursively calling itself with each of those arrays. Continue the recursive decomposition of the array until the base case of the recursion is reached, where the list is divided into arrays of length one, which are by definition sorted. Then, as control passes back up the recursive calling structure, the algorithm merges into one sorted array the two sorted sub arrays resulting from the two recursive calls.
+Merge sort uses the divide and conquer method to sort the array by dividing it in half until each sub array has one element and then recombining these sub arrays in order. The steps are as follows: begin by dividing the array in two roughly equal parts and then recursively calling itself with each of those arrays. Continue the recursive decomposition of the array until the base case of the recursion is reached, where the list is divided into arrays of length one, which are by definition sorted. Then, as control passes back up the recursive calling structure, the algorithm merges into one sorted array the two sorted sub arrays resulting from the two recursive calls. Merge sort is faster than bubble sort and has a big-o of O(nlog(n)).
 
 ### .Net Sort
 
-
+The .Net sorting algorithm uses a number of different sorting algorithms depending on the size of the array to be sorted.
+1. If the size is fewer than 16 elements, it uses an insertion sort algorithm.
+2. If the size exceeds 2 * log^N, where N is the range of the input array, it uses a Heap Sort algorithm.
+3. Otherwise, it uses a Quicksort algorithm.
 
 ---
 ### Contributors
