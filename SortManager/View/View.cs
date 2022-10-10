@@ -1,7 +1,4 @@
-﻿
-using System.Text;
-
-namespace SortManagerView;
+﻿namespace SortManagerView;
 
 public class View
 {
@@ -38,23 +35,21 @@ public class View
     public void ClearScreen()
     {
         Console.Clear();
-
     }
 
     public void DisplayInvalidRetryMessage()
     {
         DisplayInvalidInputMessage();
         Console.WriteLine($@"
-            1 Again?
-            2 Exit?
-            >> ");
+1 Again?
+2 Exit?
+>> ");
         Input = Console.ReadLine();
         ClearUpToBoarder();
     }
 
 
     #endregion
-
 
     #region SCREENS
 
@@ -70,12 +65,11 @@ public class View
         Console.WriteLine
             (
                 @"Choose your option.
-                1 - Bubble sort
-                2 - Merge sort
-                3 - .NET sort
-                4 - Exit  
-                >> "
-            );
+1 - Bubble sort
+2 - Merge sort
+3 - .NET sort
+4 - Exit  
+>> ");
         Input = Console.ReadLine();
         ClearUpToBoarder();
     }
@@ -84,8 +78,8 @@ public class View
     {
         ConsoleWritesGreen();
         Console.WriteLine(@"Input Array Length.
-            Error will be shown if no length is given.
-            >> ");
+Error will be shown if no length is given or array length is not between 0 and 100.
+>> ");
         Input = Console.ReadLine();
         ClearUpToBoarder();
     }
@@ -95,12 +89,12 @@ public class View
         CreateSuspense();
         ConsoleWritesGreen();
         Console.WriteLine($@"Output.
-            Array unsorted: {arrayUnsorted}
-            Array sorted: {arraySorted}
-            Time taken: {timeTaken} miliseconds
-            1 Again?
-            2 Exit?
-            >> ");
+Array unsorted: {arrayUnsorted}
+Array sorted: {arraySorted}
+Time taken: {timeTaken} miliseconds
+1 Again?
+2 Exit?
+>> ");
         Input = Console.ReadLine();
         ClearUpToBoarder();
     }
@@ -129,12 +123,12 @@ public class View
     {
         ConsoleWritesRed();
         Console.WriteLine($@"Output.
-            Array unsorted: {arrayUnsorted}
-            Array sorted: ERROR: {errorMessage}
-            Time taken: {timeTaken} miliseconds
-            1 Again?
-            2 Exit?
-            >> ");
+Array unsorted: {arrayUnsorted}
+Array sorted: ERROR: {errorMessage}
+Time taken: {timeTaken} miliseconds
+1 Again?
+2 Exit?
+>> ");
         Input = Console.ReadLine();
         ClearUpToBoarder();
     }
@@ -145,7 +139,7 @@ public class View
 
     public void CreateSuspense()
     {
-        ConsoleWritesGreenTextBlackBG();
+        ConsoleWritesGreen();
         ClearUpToBoarder();
         Thread.Sleep(1000);
         Console.WriteLine("Are you ready?");
@@ -220,12 +214,6 @@ ________________________________________________________________________________
         Console.ForegroundColor = ConsoleColor.White;
     }
 
-    public void ConsoleWritesGreenTextBlackBG()
-    {
-        Console.BackgroundColor = ConsoleColor.Black;
-        Console.ForegroundColor = ConsoleColor.Green;
-    }
-
     public void DisplayAsciiPop()
     {
         ConsoleWritesNormal();
@@ -251,5 +239,4 @@ ________________________________________________________________________________
     }
 
     #endregion
-
 }

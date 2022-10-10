@@ -1,22 +1,21 @@
 ﻿using SortManagerController;
 
-namespace SortManagerApp
+namespace SortManagerApp;
+
+public class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        Controller controller = new Controller();
+       
+        while (controller.Running)
         {
-            Controller controller = new Controller();
-           
-            while (controller.Running)
-            {
-                controller.SetUp();
-                controller.GetSorter();
-                if (!controller.Running) break;
-                controller.GenerateUnsortedArray();
-                controller.GetSotedArray();
-                controller.CheckRetry();
-            }
+            controller.SetUp();
+            controller.GetSorter();
+            if (!controller.Running) break;
+            controller.GenerateUnsortedArray();
+            controller.GetSotedArray();
+            controller.CheckRetry();
         }
     }
 }
