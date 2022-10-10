@@ -13,9 +13,8 @@
     1. [Prerequisites](#prerequisites)
     2. [Installation](#installation)
 3. [Usage](#usage)
-4. [Method](#method)
-5. [Sorting Algorithms](#sorting-algorithms)
-6. [Contributors](#contributors)
+4. [Sorting Algorithms](#sorting-algorithms)
+5. [Contributors](#contributors)
   
  # About The Project
  
@@ -77,10 +76,6 @@ git clone https://github.com/greezyBob/SortAlgorithmChooser.git
 
 ---
 
-## Method
-
----
-
 ## Sorting Algorithms
 
 ### Bubble Sort
@@ -112,4 +107,3 @@ The .Net sorting algorithm uses a number of different sorting algorithms dependi
 - Ameer Imam Al-Murtaza Gardezi
 - Rahul Patel
 - Jai Bharat Kothari
->>>>>>> dev
