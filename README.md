@@ -41,25 +41,25 @@ git clone https://github.com/greezyBob/SortAlgorithmChooser.git
 
 * The opening screen displays the animated ASCII title followed by a selection menu for sort methods
 
-![FirstScreen](README_screenshots/Screen1.png)
+![FirstScreen](./README_screenshots/Screen1.png)
 
 * Decision is given via the command line Console.ReadLine()
 
 * If a user enters an invalid character, an error message will be thrown and they will be prompted to re-enter an option
 
-![InvalidScreen](README_screenshots/InvalidInput.png)
+![InvalidScreen](./README_screenshots/InvalidInput.png)
 
 * A valid input yields an array length input screen
 
-![SecondScreen](README_screenshots/Screen2.png)
+![SecondScreen](./README_screenshots/Screen2.png)
 
 * Here, just as in the primary sort method selection screen, an invalid input prompts re-entry
 
-![InvalidScreen2](README_screenshots/InvalidInput2.png)
+![InvalidScreen2](./README_screenshots/InvalidInput2.png)
 
 * On valid entry of an array length, the user is held in tangible suspense as the app initiates a countdown
 
-![SuspenseScreen](README_screenshots/SuspenseScreen.png)
+![SuspenseScreen](./README_screenshots/SuspenseScreen.png)
 
 * The program should then output:
     1. The unsorted randomly generated array
@@ -67,7 +67,7 @@ git clone https://github.com/greezyBob/SortAlgorithmChooser.git
     3. The sorted array after the algorithm has been executed
     4. Time taken
 
-![HappyScreen](README_screenshots/HappyScreen.png)
+![HappyScreen](./README_screenshots/HappyScreen.png)
 
 * A user is then prompted as to whether they would like to use the application again. If so, the application begins again from the primary animation
 
