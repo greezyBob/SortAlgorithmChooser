@@ -84,4 +84,4 @@ The .Net sorting algorithm uses a number of different sorting algorithms dependi
 - Michael Bonardi Davies
 - Ameer Imam Al-Murtaza Gardezi
 - Rahul Patel
-- Jai Bharat Kothia
+- Jai Bharat Kothari
