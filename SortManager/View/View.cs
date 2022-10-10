@@ -45,9 +45,9 @@ public class View
     {
         DisplayInvalidInputMessage();
         Console.WriteLine($@"
-            1 Again?
-            2 Exit?
-            >> ");
+1 Again?
+2 Exit?
+>> ");
         Input = Console.ReadLine();
         ClearUpToBoarder();
     }
