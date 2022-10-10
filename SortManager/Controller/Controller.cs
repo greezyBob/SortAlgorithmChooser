@@ -10,7 +10,6 @@ public class Controller
     private View _view = new View();
     private int[] _unsorted;
     private ISortable _sorter;
-    private const int minArrayLength = 1;
     private const int maxArrayLength = 100;
 
     //stopwatch
@@ -51,7 +50,7 @@ public class Controller
 
         int size = ParseInput(_view.Input);
 
-        while (size < minArrayLength || size > maxArrayLength)
+        while (size < 1 || size > maxArrayLength)
         {
             _view.DisplayInvalidLengthMessage();
             size = ParseInput(_view.Input);
@@ -89,12 +88,8 @@ public class Controller
         int[] unsorted = new int[_unsorted.Length];
         _unsorted.CopyTo(unsorted, 0);
 
-        //_stopWatch.Reset();
-        //_stopWatch.Start();
         var timer = new SortTimer();
         int[] sorted = timer.MeasureElapsedTime(() => _sorter.Sort(_unsorted));
-        //_stopWatch.Stop();
-        //TimeSpan timeSpan = _stopWatch.Elapsed;
 
         _view.DisplayHappyOutputScreen(ArrayToString(unsorted), ArrayToString(sorted), timer.TimeInMS);
     }
