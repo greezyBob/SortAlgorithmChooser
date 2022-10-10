@@ -10,6 +10,7 @@ public class Controller
     private View _view = new View();
     private int[] _unsorted;
     private ISortable _sorter;
+    private const int maxArrayLength = 100;
 
     //stopwatch
     private Stopwatch _stopWatch = new Stopwatch();
@@ -19,6 +20,7 @@ public class Controller
     public void GenerateUnsortedArray()
     {
         int length = GetLengthOfArray();
+
         Random rnd = new Random();
         var arr = RandomArray(length, rnd);
 
@@ -26,9 +28,8 @@ public class Controller
     }
 
     public int[] RandomArray(int length, Random rnd)
-    {
+    { 
         int[] arr = new int[length];
-
 
         for (int i = 0; i < arr.Length; i++)
         {
@@ -49,7 +50,7 @@ public class Controller
 
         int size = ParseInput(_view.Input);
 
-        while (size < 1 || size > 100)
+        while (size < 1 || size > maxArrayLength)
         {
             _view.DisplayInvalidLengthMessage();
             size = ParseInput(_view.Input);
@@ -83,19 +84,14 @@ public class Controller
 
     public void GetSotedArray()
     {
-        //SortTimer sortTimer = new SortTimer();
-
         // copy unsorted due to Array.Sort mutation
         int[] unsorted = new int[_unsorted.Length];
         _unsorted.CopyTo(unsorted, 0);
 
-        _stopWatch.Reset();
-        _stopWatch.Start();
-        int[] sorted = _sorter.Sort(_unsorted);
-        _stopWatch.Stop();
-        TimeSpan timeSpan = _stopWatch.Elapsed;
+        var timer = new SortTimer();
+        int[] sorted = timer.MeasureElapsedTime(() => _sorter.Sort(_unsorted));
 
-        _view.DisplayHappyOutputScreen(ArrayToString(unsorted), ArrayToString(sorted), timeSpan.TotalSeconds);
+        _view.DisplayHappyOutputScreen(ArrayToString(unsorted), ArrayToString(sorted), timer.TimeInMS);
     }
 
     public void CheckRetry()

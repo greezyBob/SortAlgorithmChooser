@@ -6,12 +6,14 @@ namespace SortManagerView;
 public class View
 {
     public string? Input { get; set; }
+    private const int windowWidth = 130;
+    private const int windowHeight = 30;
 
     #region CONSOLE_CONFIG_AND_STARTUP
 
     public void Setup()
     {
-        Console.SetWindowSize(130, 50);
+        Console.SetWindowSize(windowWidth, windowHeight);
         DisplayWelcomeScreen();
     }
 
@@ -39,7 +41,19 @@ public class View
 
     }
 
+    public void DisplayInvalidRetryMessage()
+    {
+        DisplayInvalidInputMessage();
+        Console.WriteLine($@"
+            1 Again?
+            2 Exit?
+            >> ");
+        Input = Console.ReadLine();
+        ClearUpToBoarder();
+    }
+
     #endregion
+
 
     #region SCREENS
 
@@ -104,6 +118,8 @@ Time taken: {timeTaken} miliseconds
         ConsoleWritesGreen();
     }
 
+<<<<<<< HEAD
+=======
     public void DisplayInvalidRetryMessage()
     {
         DisplayInvalidInputMessage();
@@ -115,6 +131,7 @@ Time taken: {timeTaken} miliseconds
         ClearUpToBoarder();
     }
 
+>>>>>>> 7c59e02acf4720f01979a9e39b48a8d57c81028b
     public void DisplayInvalidLengthMessage()
     {
         DisplayInvalidInputMessage();
