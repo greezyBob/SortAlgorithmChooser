@@ -60,9 +60,14 @@ git clone https://github.com/greezyBob/SortAlgorithmChooser.git
 
 Bubble sort is the simplest sorting algorithm used in the Sort Manager. It is also the slowest because it steps through every element and swaps the next element with the previous if the next one is less than the previous. This sequence is repeated for the number of elements in the array i.e. if there are 10 elements in the array, the sequence will need 100 steps or 10<sup>2</sup>. This is also written as O(n<sup>2</sup>) using big-o notation.
 
+<a href="https://en.wikipedia.org/wiki/Bubble_sort#/media/File:Bubble-sort-example-300px.gif"> Bubble Sort Demo</a>
+
+
 ### Merge Sort
 
 Merge sort uses the divide and conquer method to sort the array by dividing it in half until each sub array has one element and then recombining these sub arrays in order. The steps are as follows: begin by dividing the array in two roughly equal parts and then recursively calling itself with each of those arrays. Continue the recursive decomposition of the array until the base case of the recursion is reached, where the list is divided into arrays of length one, which are by definition sorted. Then, as control passes back up the recursive calling structure, the algorithm merges into one sorted array the two sorted sub arrays resulting from the two recursive calls. Merge sort is faster than bubble sort and has a big-o of O(nlog(n)).
+
+<a href="https://en.wikipedia.org/wiki/Merge_sort#/media/File:Merge-sort-example-300px.gif"> Merge Sort Demo</a>
 
 ### .Net Sort
 
