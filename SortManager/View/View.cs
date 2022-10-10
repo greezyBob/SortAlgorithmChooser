@@ -1,7 +1,4 @@
-﻿
-using System.Text;
-
-namespace SortManagerView;
+﻿namespace SortManagerView;
 
 public class View
 {
@@ -38,7 +35,6 @@ public class View
     public void ClearScreen()
     {
         Console.Clear();
-
     }
 
     public void DisplayInvalidRetryMessage()
@@ -53,7 +49,6 @@ public class View
     }
 
     #endregion
-
 
     #region SCREENS
 
@@ -73,8 +68,7 @@ public class View
 2 - Merge sort
 3 - .NET sort
 4 - Exit  
->> "
-            );
+>> ");
         Input = Console.ReadLine();
         ClearUpToBoarder();
     }
@@ -83,7 +77,7 @@ public class View
     {
         ConsoleWritesGreen();
         Console.WriteLine(@"Input Array Length.
-Error will be shown if no length is given.
+Error will be shown if no length is given or array length is not between 0 and 100.
 >> ");
         Input = Console.ReadLine();
         ClearUpToBoarder();
@@ -122,19 +116,6 @@ Time taken: {timeTaken} miliseconds
     {
         DisplayInvalidInputMessage();
         DisplayArrayLengthScreen();
-    }
-
-    public void DisplayAreYouSureYouWantToExitScreen()
-    {
-        ConsoleWritesRed();
-        Console.WriteLine("Are you sure you want to exit?");
-        ConsoleWritesGreen();
-        Console.WriteLine($@"
-            1 No
-            2 Yes
-            >> ");
-        Input = Console.ReadLine();
-        ClearUpToBoarder();
     }
 
     public void DisplayUnhappyOutputScreen(int[] arrayUnsorted, string errorMessage, double timeTaken)
@@ -255,5 +236,6 @@ ________________________________________________________________________________
         Console.WriteLine(GetAsciiArt());
         Thread.Sleep(200);
     }
+
     #endregion
 }

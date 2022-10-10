@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿namespace Model;
 
-namespace Model
+public class DotNetSort : ISortable
 {
-    public class DotNetSort : ISortable
+    public int[] Sort(int[] nums)
     {
-        public int[] Sort(int[] nums)
-        {
-            Array.Sort(nums);
-            return nums;
-        }
+        Array.Sort(nums);
+        return nums;
     }
 }
