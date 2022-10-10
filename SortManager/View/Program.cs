@@ -1,4 +1,4 @@
-﻿namespace Model;
+﻿namespace SortManagerView;
 
 public class Program
 {

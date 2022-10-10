@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿namespace Model;
 
-namespace Model
+public interface ISortable
 {
-    public interface ISortable
-    {
-        int[] Sort(int[] nums);
-    }
+    int[] Sort(int[] nums);
 }

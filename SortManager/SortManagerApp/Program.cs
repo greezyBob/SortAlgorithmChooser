@@ -1,10 +1,21 @@
-﻿namespace SortManagerApp
+﻿using SortManagerController;
+
+namespace SortManagerApp;
+
+public class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        Controller controller = new Controller();
+       
+        while (controller.Running)
         {
-            Console.WriteLine("Hello, World!");
+            controller.SetUp();
+            controller.GetSorter();
+            if (!controller.Running) break;
+            controller.GenerateUnsortedArray();
+            controller.GetSotedArray();
+            controller.CheckRetry();
         }
     }
 }
