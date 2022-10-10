@@ -69,11 +69,11 @@ public class View
         Console.WriteLine
             (
                 @"Choose your option.
-                1 - Bubble sort
-                2 - Merge sort
-                3 - .NET sort
-                4 - Exit  
-                >> "
+1 - Bubble sort
+2 - Merge sort
+3 - .NET sort
+4 - Exit  
+>> "
             );
         Input = Console.ReadLine();
         ClearUpToBoarder();
@@ -83,8 +83,8 @@ public class View
     {
         ConsoleWritesGreen();
         Console.WriteLine(@"Input Array Length.
-            Error will be shown if no length is given.
-            >> ");
+Error will be shown if no length is given.
+>> ");
         Input = Console.ReadLine();
         ClearUpToBoarder();
     }
@@ -94,12 +94,12 @@ public class View
         CreateSuspense();
         ConsoleWritesGreen();
         Console.WriteLine($@"Output.
-            Array unsorted: {arrayUnsorted}
-            Array sorted: {arraySorted}
-            Time taken: {timeTaken} miliseconds
-            1 Again?
-            2 Exit?
-            >> ");
+Array unsorted: {arrayUnsorted}
+Array sorted: {arraySorted}
+Time taken: {timeTaken} miliseconds
+1 Again?
+2 Exit?
+>> ");
         Input = Console.ReadLine();
         ClearUpToBoarder();
     }
@@ -118,6 +118,20 @@ public class View
         ConsoleWritesGreen();
     }
 
+<<<<<<< HEAD
+=======
+    public void DisplayInvalidRetryMessage()
+    {
+        DisplayInvalidInputMessage();
+        Console.WriteLine($@"
+1 Again?
+2 Exit?
+>> ");
+        Input = Console.ReadLine();
+        ClearUpToBoarder();
+    }
+
+>>>>>>> 7c59e02acf4720f01979a9e39b48a8d57c81028b
     public void DisplayInvalidLengthMessage()
     {
         DisplayInvalidInputMessage();
@@ -128,12 +142,12 @@ public class View
     {
         ConsoleWritesRed();
         Console.WriteLine($@"Output.
-            Array unsorted: {arrayUnsorted}
-            Array sorted: ERROR: {errorMessage}
-            Time taken: {timeTaken} miliseconds
-            1 Again?
-            2 Exit?
-            >> ");
+Array unsorted: {arrayUnsorted}
+Array sorted: ERROR: {errorMessage}
+Time taken: {timeTaken} miliseconds
+1 Again?
+2 Exit?
+>> ");
         Input = Console.ReadLine();
         ClearUpToBoarder();
     }
@@ -248,7 +262,5 @@ ________________________________________________________________________________
         Console.WriteLine(GetAsciiArt());
         Thread.Sleep(200);
     }
-
     #endregion
-
 }
