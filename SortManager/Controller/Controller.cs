@@ -12,8 +12,7 @@ public class Controller
     private ISortable _sorter;
     private const int maxArrayLength = 100;
 
-    //stopwatch
-    private Stopwatch _stopWatch = new Stopwatch();
+    
 
     public bool Running { get; set; } = true;
 
