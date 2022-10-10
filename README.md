@@ -9,7 +9,6 @@
     1. [Prerequisites](#prerequisites)
     2. [Installation](#installation)
 3. [Usage](#usage)
-4. [Method](#method)
 5. [Sorting Algorithms](#sorting-algorithms)
 6. [Contributors](#contributors)
   
@@ -70,10 +69,6 @@ git clone https://github.com/greezyBob/SortAlgorithmChooser.git
 ![HappyScreen](README_screenshots/HappyScreen.PNG)
 
 * A user is then prompted as to whether they would like to use the application again. If so, the application begins again from the primary animation
-
----
-
-## Method
 
 ---
 
