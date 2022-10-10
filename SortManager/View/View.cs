@@ -118,20 +118,6 @@ Time taken: {timeTaken} miliseconds
         ConsoleWritesGreen();
     }
 
-<<<<<<< HEAD
-=======
-    public void DisplayInvalidRetryMessage()
-    {
-        DisplayInvalidInputMessage();
-        Console.WriteLine($@"
-1 Again?
-2 Exit?
->> ");
-        Input = Console.ReadLine();
-        ClearUpToBoarder();
-    }
-
->>>>>>> 7c59e02acf4720f01979a9e39b48a8d57c81028b
     public void DisplayInvalidLengthMessage()
     {
         DisplayInvalidInputMessage();
