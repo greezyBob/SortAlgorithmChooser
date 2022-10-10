@@ -121,6 +121,19 @@ public class View
         DisplayArrayLengthScreen();
     }
 
+    public void DisplayAreYouSureYouWantToExitScreen()
+    {
+        ConsoleWritesRed();
+        Console.WriteLine("Are you sure you want to exit?");
+        ConsoleWritesGreen();
+        Console.WriteLine($@"
+            1 No
+            2 Yes
+            >> ");
+        Input = Console.ReadLine();
+        ClearUpToBoarder();
+    }
+
     public void DisplayUnhappyOutputScreen(int[] arrayUnsorted, string errorMessage, double timeTaken)
     {
         ConsoleWritesRed();
@@ -141,7 +154,7 @@ public class View
 
     public void CreateSuspense()
     {
-        ConsoleWritesGreenTextBlackBG();
+        ConsoleWritesGreen();
         ClearUpToBoarder();
         Thread.Sleep(1000);
         Console.WriteLine("Are you ready?");
@@ -214,12 +227,6 @@ ________________________________________________________________________________
     {
         Console.BackgroundColor = ConsoleColor.Black;
         Console.ForegroundColor = ConsoleColor.White;
-    }
-
-    public void ConsoleWritesGreenTextBlackBG()
-    {
-        Console.BackgroundColor = ConsoleColor.Black;
-        Console.ForegroundColor = ConsoleColor.Green;
     }
 
     public void DisplayAsciiPop()
