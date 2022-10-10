@@ -1,6 +1,7 @@
 # SortAlgorithmChooser
 
 [![.NET](https://github.com/greezyBob/SortAlgorithmChooser/actions/workflows/dotnet.yml/badge.svg)](https://github.com/greezyBob/SortAlgorithmChooser/actions/workflows/dotnet.yml)
+[![Coverage Status](https://coveralls.io/repos/github/greezyBob/SortAlgorithmChooser/badge.svg?branch=main)](https://coveralls.io/github/greezyBob/SortAlgorithmChooser?branch=main)
 
 
 
